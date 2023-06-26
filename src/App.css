@@ -1,38 +1,736 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&display=swap");
+* {
+  list-style-type: none !important;
+  text-decoration: none !important;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/*================================================= root =====================================*/
+:root {
+  --fs-xs: 14px;
+  --fs-sm: 16px;
+  --fs-md: 16px;
+  --fs-lg: 18px;
+  --fs-xl: 22px;
+  --fs-2xl: 30px;
+  --fs-3xl: 32px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.fs_xs {
+  font-size: var(--fs-xs);
+}
+.fs_sm {
+  font-size: var(--fs-sm);
+}
+.fs_md {
+  font-size: var(--fs-md);
+}
+.fs_lg {
+  font-size: var(--fs-lg);
+}
+.fs_xl {
+  font-size: var(--fs-xl);
+}
+.fs_2xl {
+  font-size: var(--fs-2xl);
+}
+.fs_3xl {
+  font-size: var(--fs-3xl);
+}
+/*========================================== font family ================================*/
+.ff_monstrat {
+  font-family: "montserrat";
+}
+.ff_poppins {
+  font-family: "poppins";
+}
+.ff_exo {
+  font-family: "exo";
+}
+.ff_mukta {
+  font-family: "mukta";
+}
+/*====================================== utility classes ======================*/
+.mt_-2 {
+  margin-top: -2px;
+}
+.c_pointer {
+  cursor: pointer;
+}
+/*======================================= back to top ============================*/
+.backtotop_icon {
+  right: 5%;
+  bottom: 5%;
+  background: var(
+    --hotizontal,
+    linear-gradient(90deg, #6601cd 0%, #cb2aef 100%)
+  );
+  height: 35px;
+  width: 35px;
+  padding-bottom: 3px;
+  z-index: 0 !important;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: backto 2s linear infinite;
+}
+body {
+  scroll-behavior: smooth;
+}
+@keyframes backto {
+  0% {
+  }
+  50% {
+    transform: translatey(-8px) scale(1.05);
   }
 }
+/*============================================ preloader ========================*/
+.animation_preloader {
+  animation: loder 3s linear 1;
+}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.overflow_hidden {
+  overflow: hidden !important;
+}
+.z_index_1000 {
+  z-index: 1000;
+}
+.z_index_100 {
+  z-index: 100 !important;
+}
+@keyframes loder {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.1) rotate(10deg);
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(1.1) rotate(-10deg);
+  }
+}
+/* preloader end */
+/*============================================ nav ===================================*/
+.nav ul li a {
+  font-family: "montserrat";
+  color: rgba(255, 255, 255, 1) !important;
+  font-size: var(--fs-sm);
+  white-space: nowrap;
+  position: relative;
+}
+.nav ul li a:hover {
+  -webkit-text-stroke: 1px !important;
+}
+header {
+  position: relative;
+}
+header::before {
+  content: "";
+  position: absolute;
+  background: rgba(0, 0, 0, 0.407);
+  z-index: 0;
+  height: 100%;
+  width: 100%;
+}
+.nav ul li a::before {
+  position: absolute;
+  content: "";
+  height: 3px;
+  border-radius: 5px;
+  width: 0%;
+  left: 50%;
+  transition: all linear 400ms;
+  bottom: -5px;
+  background: var(
+    --hotizontal,
+    linear-gradient(90deg, #6601cd 0%, #cb2aef 100%)
+  );
+}
+.nav ul li a:hover::before {
+  width: 100%;
+  left: 0;
+}
+.nav_btn {
+  padding: 12px 18px;
+  border-radius: 78px;
+  overflow: hidden;
+  position: relative;
+  gap: 8px;
+  white-space: nowrap;
+  background: var(
+    --hotizontal,
+    linear-gradient(90deg, #6601cd 0%, #cb2aef 100%)
+  );
+  border: none;
+  color: white;
+  font-family: "montserrat";
+  font-weight: 700;
+  font-size: var(--fs-lg);
+}
+
+.hover_effect::before {
+  content: "";
+  background: rgb(255, 255, 255, 0.4);
+  width: 50%;
+  height: 100%;
+  left: -125%;
+  top: 0%;
+  transform: skew(45deg);
+  position: absolute;
+  transition: left 500ms ease-in-out;
+}
+.hover_effect:hover::before {
+  left: 150%;
+}
+.sm_nav {
+  position: fixed;
+  z-index: 10 !important;
+  bottom: 0;
+  left: -100%;
+  height: 100vh;
+  width: 100%;
+  background: var(
+    --hotizontal,
+    linear-gradient(90deg, #6601cd 0%, #cb2aef 100%)
+  );
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  transition: all 300ms linear !important;
+}
+.menu_box {
+  height: 35px;
+  width: 35px;
+  display: flex;
+  justify-content: center;
+
+  align-items: center;
+  background: var(
+    --hotizontal,
+    linear-gradient(90deg, #6601cd 0%, #cb2aef 100%)
+  );
+  border-radius: 50px;
+}
+/*===================================================== nav end ============================*/
+/*================================================ hero start ============================*/
+.hero_bg {
+  background-image: url(./assets/images/gif/heroGif.gif);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.hero_btn {
+  padding: 12px 30px;
+  border-radius: 78px;
+  gap: 8px;
+  white-space: nowrap;
+  background: var(
+    --hotizontal,
+    linear-gradient(90deg, #6601cd 0%, #cb2aef 100%)
+  );
+  border: none;
+  color: white;
+  font-family: "montserrat";
+  font-weight: 700;
+  font-size: var(--fs-lg);
+}
+.hero_img {
+  left: 23%;
+  top: -35%;
+  z-index: 0 !important;
+  animation: rotate 4s linear infinite;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate();
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.hero_h1 {
+  background: radial-gradient(
+    100% 100% at 50% 0%,
+    #6601cd 22.47%,
+    #cb2aef 26.08%,
+    #ffffff 51.4%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.mw_703 {
+  max-width: 703px;
+}
+/*=========================================== hero end ================================================ */
+/*============================================ Statistics ======================================*/
+.Statistics_bg {
+  background: linear-gradient(to right, #6601cd, #6601cd, #69087e, #cb2aef);
+}
+.statiscs_box {
+  padding: 21px auto;
+  border-radius: 6px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.1) 0.01%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  cursor: pointer;
+}
+.statiscs_box:hover {
+  background-color: white;
+}
+.statiscs_box {
+  transition: all 300ms linear;
+}
+.statiscs_box:hover div path {
+  fill: url(#paint0_linear_2_6033);
+}
+.statiscs_box:hover h4 {
+  background: linear-gradient(to right, #6601cd, #cb2aef, #cf23cf, #cb2aef);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+.statiscs_box:hover p {
+  background: linear-gradient(to right, #6601cd, #cb2aef, #cf23cf, #cb2aef);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+/*==================================== statistic end ===========================================*/
+/*========================================== our pumps start ===============================*/
+.boxes_img {
+  bottom: -7%;
+  z-index: 0 !important;
+}
+.our_bg {
+  bottom: -6%;
+  left: -0% !important;
+}
+.roket_gif {
+  position: absolute;
+  top: 45%;
+  z-index: 2 !important;
+  right: 20%;
+}
+/*============================================ slider  ============================*/
+.react-3d-carousel .slider-container .slider-right {
+  display: none;
+  position: absolute !important;
+  left: 80% !important;
+  top: 38% !important;
+  padding: 40px 50px !important;
+  height: 10% !important;
+  cursor: pointer !important;
+  margin-left: -2px;
+}
+.react-3d-carousel
+  .slider-container
+  .slider-content
+  .slider-single
+  .slider-single-content
+  img {
+  width: 42% !important;
+}
+
+.slider-right div {
+  display: none !important;
+}
+.slider-right {
+  display: none !important;
+}
+.react-3d-carousel .slider-container .slider-left {
+  display: none;
+  position: absolute;
+  z-index: 3 !important;
+  left: 10% !important;
+  top: 38% !important;
+  padding: 40px 50px !important;
+  height: 10% !important;
+  cursor: pointer !important;
+  margin-left: -2px;
+}
+.slider-left div {
+  display: none !important;
+}
+.slider-left {
+  display: none !important;
+}
+.react-3d-carousel
+  .slider-container
+  .slider-content
+  .slider-single.proactive
+  .slider-single-content {
+  opacity: 0.3;
+  transform: translateX(7%) scale(0.9) !important;
+}
+.react-3d-carousel
+  .slider-container
+  .slider-content
+  .slider-single.preactive
+  .slider-single-content {
+  opacity: 0.3;
+  transform: translateX(-7%) scale(0.9) !important;
+}
+/*========================================== our pumps end ======================================*/
+/*===================================== feedback start ========================================*/
+.feedback_box {
+  border-radius: 6px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.1) 0.01%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
+  backdrop-filter: blur(7.5px);
+  padding: 24px 9px;
+  border: 1px solid transparent;
+}
+.feedback_hover_box {
+  transition: all linear 300ms;
+}
+.feedback_box .opacity_07 {
+  opacity: 0.69;
+  transition: all linear 300ms;
+}
+.feedback_bg {
+  background: linear-gradient(to right, #6601cd, #6601cd, #69087e, #cb2aef);
+}
+.feedback_box:hover .feedback_hover_box {
+  transform: translatey(-45px);
+}
+.feedback_box:hover .opacity_07 {
+  opacity: 1;
+}
+.feedback_box div svg g {
+  transition: all 300ms linear;
+}
+.feedback_box:hover div svg g {
+  opacity: 1 !important;
+}
+.feedback_box:hover {
+  border: 1px solid rgba(255, 255, 255, 0.207);
+}
+#feedback{margin-top: -3%;}
+/*======================================== feedback end ===============================================*/
+/*====================================== about section start ============================*/
+.about_bg {
+  background: linear-gradient(to right, #6601cd, #6601cd, #69087e, #cb2aef);
+}
+/*=============================================== about end ===================================*/
+/*============================================== works start ===================================*/
+.works_s p {
+  color: white;
+  font-size: var(--fs-lg);
+  font-family: "Poppins";
+  padding: 15px;
+  transition: all 300ms linear;
+  font-weight: 500 !important;
+}
+.works_s p:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.1) 0.01%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
+  backdrop-filter: blur(7.5px);
+}
+.work_img {
+  animation: scale 2s linear infinite;
+}
+@keyframes scale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.98);
+  }
+}
+.work_rgb {
+  background: linear-gradient(to right, #6601cd, #cb2aef, #cf23cf, #cb2aef);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+
+.gradient-border {
+  padding: 10px 20px;
+  border: 2px solid;
+  background: transparent;
+  border-image: linear-gradient(45deg, #6601cd, #cb2aef) 1;
+  border-radius: 5px;
+}
+.gradient-border-pseudo {
+  position: relative;
+  padding: 10px 20px;
+  background: #fff;
+  margin: 5px;
+  border-radius: 6px;
+}
+.gradient-border-pseudo::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  margin: -5px;
+  border-radius: inherit;
+  background-image: linear-gradient(45deg, #6601cd, #cb2aef);
+}
+.gradient-border-bg {
+  background: linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(45deg, #6601cd, #cb2aef) border-box;
+  border: 2px solid transparent;
+  border-radius: 50px;
+  padding: 10px 20px;
+}
+.gradient-border-mask {
+  position: relative;
+  padding: 15px 20px;
+}
+.gradient-border-mask::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 6px;
+  border: 2px solid transparent;
+  background: none;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+}
+.gradient-border-mask:hover::before {
+  background: linear-gradient(45deg, #6601cd, #cb2aef) border-box;
+}
+.gradient-border-mask {
+  transition: all 500ms linear;
+}
+/*================================================== work end =======================================*/
+/*================================================= faqs start =======================================*/
+.mw_845 {
+  max-width: 845px;
+}
+.fqs_bottom_circle {
+  bottom: -20%;
+  right: 0;
+}
+.rgb_circle {
+  border-radius: 352px;
+  background: var(
+    --hotizontal,
+    linear-gradient(90deg, #6601cd 0%, #cb2aef 100%)
+  );
+  filter: blur(210.5px);
+  height: 352px;
+  width: 352px;
+  z-index: 0 !important;
+  position: relative;
+}
+.z_5 {
+  z-index: 5 !important;
+}
+.fq_border_b {
+  border-bottom: 1px solid white;
+}
+.accordion-item:first-of-type .accordion-button {
+  color: white;
+  background-color: transparent !important;
+  font-family: "poppins";
+  font-weight: 500;
+  font-size: var(--fs-lg);
+}
+.accordion-item .accordion-button {
+  color: white;
+  background-color: transparent !important;
+  font-family: "poppins";
+  font-weight: 500;
+
+  font-size: var(--fs-md);
+}
+.accordion-body {
+  background-color: transparent !important;
+  color: white;
+  font-family: "poppins";
+  font-weight: 400;
+  opacity: 0.69;
+  font-size: var(--fs-sm);
+}
+.accordion-button:not(.collapsed) {
+  background-color: transparent !important;
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.accordion {
+  --bs-accordion-btn-active-icon: url(./assets/images/png/up_arrow.png) !important;
+  --bs-accordion-btn-icon: url(./assets/images/png/down_arrow.png) !important;
+  --bs-accordion-border-color: transparent !important;
+  --bs-accordion-btn-focus-box-shadow: none !important;
+  --bs-accordion-btn-padding-x: 0px !important;
+  --bs-accordion-body-padding-x: 0px !important;
+  position: relative !important;
+  z-index: 6 !important;
+  --bs-accordion-inner-border-radius: 0 !important;
+  --bs-accordion-border-radius: 0 !important;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.accordion-item {
+  background-color: transparent !important;
+  z-index: 2 !important;
+}
+.accordion-button:not(.collapsed) {
+  color: white !important;
+  background-color: transparent !important;
+}
+.accordion-item {
+  border-top: 1px solid rgba(255, 255, 255, 0.251) !important ;
+}
+.border_b {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.251) !important ;
+}
+.accordion_circle {
+  top: 60%;
+  z-index: 0 !important;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.faqs_h2 {
+  background: linear-gradient(to right, #6601cd, #cb2aef, #cf23cf, #cb2aef);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+/*==================================================== faqs end =================================*/
+/*================================================== footer========================= */
+.footer_btn {
+  border-radius: 78px;
+  background: var(
+    --hotizontal,
+    linear-gradient(90deg, #6601cd 0%, #cb2aef 100%)
+  );
+  border: none;
+  padding: 5px 10px;
+  color: white;
+  font-size: var(--fs-xs);
+  font-family: "montserrat";
+}
+.footer_s {
+  border-top: 1px solid rgba(255, 255, 255, 0.218);
+}
+/*=============================================== footer end =================================*/
+/*================================================ media screen 576 ==============================*/
+@media (min-width: 576px) {
+  .nav_btn {
+    padding: 12px 30px;
+    font-family: "montserrat";
+    font-weight: 700;
   }
-  to {
-    transform: rotate(360deg);
+  :root {
+    --fs-xs: 14px;
+    --fs-sm: 16px;
+    --fs-md: 18px;
+    --fs-lg: 20px;
+    --fs-xl: 26px;
+    --fs-2xl: 30px;
+    --fs-3xl: 35px;
+  }
+  .c_pointer {
+    height: 50px;
+    width: 50px;
+  }
+}
+/*================================================= media screen 768 ===================================*/
+@media (min-width: 768px) {
+  :root {
+    --fs-xl: 28px;
+    --fs-2xl: 35px;
+    --fs-3xl: 40px;
+  }
+  .Statistics_sec {
+    transform: translatey(-10%);
+  }
+  .menu_box {
+    height: 40px;
+    width: 40px;
+    display: flex;
+  }
+}
+/*================================================ media screen 992 =======================================*/
+@media (min-width: 992px) {
+  :root {
+    --fs-2xl: 40px;
+    --fs-3xl: 50px;
+  }
+
+  .Statistics_bg {
+    background-image: url(./assets/images/png/Statistics_bg.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+  .feedback_bg {
+    background-image: url(./assets/images/png/feedback_bg.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+  .about_bg {
+    background-image: url(../src/assets/images/png/about_bg.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+  .react-3d-carousel
+    .slider-container
+    .slider-content
+    .slider-single
+    .slider-single-content
+    img {
+    transform: translatey(-7%) !important;
+  }
+  .slider-right {
+    background-image: url("../src/assets/images/png/slider_rightpng.png");
+    background-repeat: no-repeat;
+    background-size: 74px;
+     z-index: 4 !important;
+    transition: all 200ms linear;
+    display: block !important;
+  }
+  .slider-left {
+    background-image: url("../src/assets/images/png/slider_left.png");
+    background-repeat: no-repeat;
+    transition: all 200ms linear;
+    background-size: 74px;
+    display: block !important;
+  }
+  .works_s p {
+    padding: 30px;
+  }
+  .hero_img {
+    left: 23%;
+    top: -61%;
+    z-index: 0 !important;
+    animation: rotate 4s linear infinite;
+  }
+}
+/*================================================ media screen 1200 ======================================*/
+@media (min-width: 1200px) {
+  :root {
+    --fs-xs: 14px;
+    --fs-sm: 16px;
+    --fs-md: 18px;
+    --fs-lg: 20px;
+    --fs-xl: 30px;
+    --fs-2xl: 48px;
+    --fs-3xl: 70px;
+  }
+  .vh_xl_110 {
+    height: 110vh;
+  }
+  .overflow_xl_visible {
+    overflow: auto !important;
   }
 }
